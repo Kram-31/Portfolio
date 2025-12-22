@@ -1,0 +1,103 @@
+🛠️ Stack Technique - Style "Linear"
+
+Cette page a été construite sans framework lourd (comme React ou Vue) pour la démonstration, en utilisant une approche "Vanilla" + Utility-First.
+
+1. Le Cœur (Core)
+
+HTML5 Sémantique : Structure de base (<article>, <nav>, <main>).
+
+Tailwind CSS (v3.4 via CDN) : Le moteur de style principal.
+
+J'ai utilisé la version CDN pour que le fichier soit "copier-coller" et marche instantanément.
+
+Configuration injectée : J'ai personnalisé le thème Tailwind directement dans la balise <script> pour ajouter les couleurs spécifiques.
+
+2. Design & UI
+
+Police : Inter (via Google Fonts)
+
+C'est la police standard du style "Linear". Elle est neutre, très lisible et possède de belles graisses (300, 400, 500, 600).
+
+Icônes : SVGs Inline
+
+Pas de librairie lourde comme FontAwesome. J'ai utilisé des tracés SVG bruts (style Heroicons) pour des lignes fines (stroke-width="2" ou "1.5").
+
+3. Les "Tricks" CSS (Le Secret du Style)
+
+C'est ici que la magie opère. Tailwind ne fait pas tout, j'ai ajouté du CSS personnalisé (<style>) pour les effets avancés :
+
+Mask Image (mask-image) :
+
+Utilisé pour la grille de fond (.bg-grid). Cela permet à la grille de disparaître doucement sur les bords (fading) au lieu de couper net.
+
+Backdrop Filter (backdrop-filter: blur()) :
+
+Utilisé sur la barre de navigation et les cartes pour cet effet de "verre fumé".
+
+Dégradés de Bordures :
+
+Les cartes utilisent des bordures très fines (1px) avec des couleurs semi-transparentes (rgba(255,255,255,0.08)) pour ne capter la lumière que subtilement.
+
+4. Palette de Couleurs (Design Tokens)
+
+Le style Linear repose sur des nuances de noirs très spécifiques, jamais du noir pur (#000000).
+
+Élément
+
+Code Couleur
+
+Description
+
+Fond Principal
+
+#08090A
+
+Un noir "chaud" très profond.
+
+Fond Secondaire
+
+#0F1115
+
+Pour l'intérieur des cartes/inputs.
+
+Bordures
+
+rgba(255,255,255,0.08)
+
+Blanc à 8% d'opacité.
+
+Accent
+
+#6366f1 (Indigo-500)
+
+Utilisé avec parcimonie (juste pour les lueurs).
+
+Texte Principal
+
+#E2E8F0 (Slate-200)
+
+Presque blanc, mais moins agressif.
+
+Texte Secondaire
+
+#94A3B8 (Slate-400)
+
+Pour les descriptions.
+
+5. JavaScript (Minimaliste)
+
+Génération Procédurale : Un petit script de 20 lignes pour générer les étoiles (.star) aléatoirement.
+
+Cela évite de charger une image lourde pour le fond et rend l'animation unique à chaque chargement.
+
+🚀 Recommandation pour la Production
+
+Si vous vouliez mettre ce site en ligne professionnellement, je vous recommanderais de passer de ce fichier HTML unique à cette stack :
+
+Framework : Next.js (React) ou Astro (pour la performance pure).
+
+Styling : Tailwind CSS (installé via NPM, pas CDN).
+
+Animation : Framer Motion (pour des transitions de pages fluides et des apparitions d'éléments au scroll).
+
+Hébergement : Vercel (les créateurs de Next.js, qui utilisent eux-mêmes ce style graphique).
