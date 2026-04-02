@@ -129,7 +129,7 @@
                 <h2>Mes Réalisations</h2>
                 <div class="projects-grid">
                     
-                    <article class="project-card">
+                    <article class="project-card" data-project-id="reseau-ilot">
                         <div class="project-content">
                             <div class="project-tag">Réseau & Infra</div>
                             <h3>Infrastructure Réseau Îlot</h3>
@@ -139,10 +139,11 @@
                                 <span>GLPI</span>
                                 <span>Debian</span>
                             </div>
+                            <div class="project-cta">Voir le détail <span class="cta-arrow">→</span></div>
                         </div>
                     </article>
 
-                    <article class="project-card">
+                    <article class="project-card" data-project-id="gamesync">
                         <div class="project-content">
                             <div class="project-tag">Développement iOS</div>
                             <h3>Application GameSync</h3>
@@ -152,10 +153,11 @@
                                 <span>iOS</span>
                                 <span>UIKit</span>
                             </div>
+                            <div class="project-cta">Voir le détail <span class="cta-arrow">→</span></div>
                         </div>
                     </article>
 
-                    <article class="project-card">
+                    <article class="project-card" data-project-id="piscine42">
                         <div class="project-content">
                             <div class="project-tag">Fondamentaux</div>
                             <h3>Piscine 42 - UNIX</h3>
@@ -165,6 +167,7 @@
                                 <span>Bash</span>
                                 <span>Shell</span>
                             </div>
+                            <div class="project-cta">Voir le détail <span class="cta-arrow">→</span></div>
                         </div>
                     </article>
 
@@ -211,13 +214,21 @@
             <div class="section-container">
                 <h2>Me contacter</h2>
                 <form action="https://formspree.io/f/xqezyryw" method="POST" class="contact-form">
+                    <!-- Formspree : sujet de l'email reçu -->
+                    <input type="hidden" name="_subject" value="Nouveau message depuis le Portfolio">
+                    <!-- Formspree : permet de répondre directement à l'expéditeur -->
+                    <input type="hidden" name="_replyto">
+                    <!-- Honeypot anti-spam : caché aux humains, rempli par les bots → rejet automatique -->
+                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
                     <div class="form-group">
                         <label for="name">Votre Nom</label>
                         <input type="text" id="name" name="name" placeholder="Ex: Jean Dupont" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Adresse Email</label>
-                        <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                        <input type="email" id="email" name="email" placeholder="votre@email.com" required
+                               oninput="document.querySelector('[name=_replyto]').value = this.value">
                     </div>
                     <div class="form-group">
                         <label for="message">Votre Message</label>
@@ -240,7 +251,40 @@
         </div>
     </footer>
 
+    <!-- Project Detail Modal -->
+    <div id="project-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-container">
+            <button class="modal-close" id="modal-close-btn" aria-label="Fermer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="modal-header">
+                <div class="modal-tag" id="modal-tag"></div>
+                <h2 id="modal-title" class="modal-title"></h2>
+                <p class="modal-subtitle" id="modal-subtitle"></p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h4 class="modal-section-title">🗒️ Description</h4>
+                    <p id="modal-description" class="modal-text"></p>
+                </div>
+                <div class="modal-section">
+                    <h4 class="modal-section-title">⚙️ Ce que j'ai fait</h4>
+                    <ul id="modal-tasks" class="modal-list"></ul>
+                </div>
+                <div class="modal-section">
+                    <h4 class="modal-section-title">💡 Ce que j'ai appris</h4>
+                    <p id="modal-learnings" class="modal-text"></p>
+                </div>
+                <div class="modal-section">
+                    <h4 class="modal-section-title">🛠️ Stack technique</h4>
+                    <div id="modal-tech" class="modal-tech-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="stars.js"></script>
+    <script src="modal.js"></script>
 </body>
 
 </html>
