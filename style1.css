@@ -293,18 +293,19 @@ h2::after {
 }
 
 .project-card {
-    background: #0F1115;
+    background: var(--card-bg);
     border: 1px solid var(--card-border);
     border-radius: 16px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s;
+    transition: 0.3s;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: var(--accent-color);
+    background: rgba(79, 70, 229, 0.05);
 }
 
 .project-img-wrapper {
@@ -355,9 +356,9 @@ h2::after {
 }
 
 .cert-card:hover {
+    transform: translateY(-5px);
     border-color: var(--accent-color);
     background: rgba(79, 70, 229, 0.05);
-    transform: translateY(-3px);
 }
 
 .cert-icon {
@@ -467,9 +468,7 @@ h2::after {
 
 /* Timeline & Education */
 .education-block {
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--card-border);
+    margin-top: 1rem;
     text-align: left;
 }
 .project-tag {
@@ -525,8 +524,9 @@ h2::after {
 }
 
 .skill-category:hover {
+    transform: translateY(-5px);
     border-color: var(--accent-color);
-    background: rgba(99, 102, 241, 0.02);
+    background: rgba(79, 70, 229, 0.05);
 }
 
 .skill-category h4 {
