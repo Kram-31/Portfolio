@@ -3,7 +3,7 @@
  * Opens a detailed view when clicking on a project card.
  */
 
-const PROJECTS = {
+export const PROJECTS = {
     'reseau-ilot': {
         tag: 'Réseau & Infra',
         title: 'Infrastructure Réseau Îlot',
@@ -55,16 +55,7 @@ const PROJECTS = {
 };
 
 // DOM references
-const overlay = document.getElementById('project-modal');
-const closeBtn = document.getElementById('modal-close-btn');
-const modalTag = document.getElementById('modal-tag');
-const modalTitle = document.getElementById('modal-title');
-const modalSubtitle = document.getElementById('modal-subtitle');
-const modalDate = document.getElementById('modal-date');
-const modalDescription = document.getElementById('modal-description');
-const modalTasks = document.getElementById('modal-tasks');
-const modalLearnings = document.getElementById('modal-learnings');
-const modalTech = document.getElementById('modal-tech');
+let overlay, closeBtn, modalTag, modalTitle, modalSubtitle, modalDate, modalDescription, modalTasks, modalLearnings, modalTech;
 
 function openModal(projectId) {
     const data = PROJECTS[projectId];
@@ -101,20 +92,34 @@ function closeModal() {
     document.body.classList.remove('modal-open');
 }
 
-// Card click handlers
-document.querySelectorAll('.project-card[data-project-id]').forEach(card => {
-    card.addEventListener('click', () => openModal(card.dataset.projectId));
-});
+export function initModal() {
+    // DOM Initializations
+    overlay = document.getElementById('project-modal');
+    closeBtn = document.getElementById('modal-close-btn');
+    modalTag = document.getElementById('modal-tag');
+    modalTitle = document.getElementById('modal-title');
+    modalSubtitle = document.getElementById('modal-subtitle');
+    modalDate = document.getElementById('modal-date');
+    modalDescription = document.getElementById('modal-description');
+    modalTasks = document.getElementById('modal-tasks');
+    modalLearnings = document.getElementById('modal-learnings');
+    modalTech = document.getElementById('modal-tech');
 
-// Close button
-closeBtn.addEventListener('click', closeModal);
+    // Card click handlers
+    document.querySelectorAll('.project-card[data-project-id]').forEach(card => {
+        card.addEventListener('click', () => openModal(card.dataset.projectId));
+    });
 
-// Click outside modal container
-overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) closeModal();
-});
+    // Close button
+    closeBtn.addEventListener('click', closeModal);
 
-// Escape key
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeModal();
-});
+    // Click outside modal container
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeModal();
+    });
+
+    // Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeModal();
+    });
+}

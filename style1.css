@@ -9,6 +9,17 @@
     --container-width: 1100px; /* Retour à une largeur plus standard */
     --font-family: 'Inter', system-ui, sans-serif;
     --nav-height: 70px;
+    
+    /* Z-Index Architecture */
+    --z-bg-deep: -2;
+    --z-behind: -1;
+    --z-base: 0;
+    --z-content: 1;
+    --z-dock: 50;
+    --z-header: 1000;
+    --z-burger: 1002;
+    --z-modal: 2000;
+    --z-progress: 9999;
 }
 
 html {
@@ -34,14 +45,14 @@ body {
 .background-fixed {
     position: fixed;
     inset: 0;
-    z-index: -2;
+    z-index: var(--z-bg-deep);
     background: var(--bg-color);
 }
 
 .background-grid {
     position: fixed;
     inset: 0;
-    z-index: -1;
+    z-index: var(--z-behind);
     pointer-events: none;
     background-image: 
         linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
@@ -54,7 +65,7 @@ body {
 #stars-canvas {
     position: fixed;
     inset: 0;
-    z-index: -1;
+    z-index: var(--z-behind);
     pointer-events: none;
 }
 
@@ -79,7 +90,7 @@ a {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: var(--z-header);
     height: var(--nav-height);
     display: flex;
     justify-content: space-between;
@@ -148,6 +159,7 @@ section {
     align-items: center;
     padding: calc(var(--nav-height) + 4rem) 1.5rem 4rem;
     overflow: hidden;
+    z-index: var(--z-base);
 }
 
 .section-container {
@@ -196,7 +208,7 @@ h2::after {
     opacity: 0.15;
     background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
     filter: blur(80px);
-    z-index: 0;
+    z-index: var(--z-behind);
     pointer-events: none;
 }
 
@@ -219,6 +231,13 @@ h2::after {
 }
 
 /* Components (Buttons, Forms, Cards) */
+.hero-actions {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
 .btn-primary {
     display: inline-flex;
     align-items: center;
@@ -274,6 +293,7 @@ h2::after {
     flex-wrap: wrap;
     gap: 1rem;
     margin-top: 2rem;
+    z-index: var(--z-content);
 }
 
 .skills-list li {
@@ -727,10 +747,10 @@ h2::after {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
+    z-index: var(--z-dock);
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    z-index: 500;
 }
 
 .social-btn {
@@ -839,7 +859,7 @@ h2::after {
     .burger-menu {
         display: block;
         position: relative;
-        z-index: 1002;
+        z-index: var(--z-burger);
         font-size: 1.5rem;
     }
 
@@ -910,7 +930,7 @@ h2::after {
 .modal-overlay {
     position: fixed;
     inset: 0;
-    z-index: 2000;
+    z-index: var(--z-modal);
     background: rgba(8, 9, 10, 0.85);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
@@ -1118,7 +1138,7 @@ body.modal-open {
     height: 2px;
     width: 0%;
     background: linear-gradient(90deg, #4f46e5, #a5b4fc);
-    z-index: 9999;
+    z-index: var(--z-progress);
     transition: width 0.08s linear;
     box-shadow: 0 0 8px rgba(79, 70, 229, 0.6);
 }
@@ -1150,7 +1170,7 @@ body.modal-open {
     );
     border-radius: inherit;
     pointer-events: none;
-    z-index: 0;
+    z-index: var(--z-base);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -1165,7 +1185,7 @@ body.modal-open {
 .cert-card > *,
 .skill-category > * {
     position: relative;
-    z-index: 1;
+    z-index: var(--z-content);
 }
 
 /* ===========================

@@ -5,6 +5,11 @@
  * - Active nav section highlight
  */
 
+import { initModal } from './modal.js';
+
+// Init imports
+initModal();
+
 // ===========================
 // Burger Menu
 // ===========================
@@ -63,15 +68,38 @@ const sectionObserver = new IntersectionObserver((entries) => {
 sections.forEach(s => sectionObserver.observe(s));
 
 // ===========================
-// Back to Top
+// Centralized Scroll Optimization (Throttle)
 // ===========================
 const backToTopBtn = document.getElementById('back-to-top');
+const progressBar = document.getElementById('scroll-progress');
+const header = document.querySelector('.main-header');
+
+let isTicking = false;
 
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 400) {
-        backToTopBtn?.classList.add('visible');
-    } else {
-        backToTopBtn?.classList.remove('visible');
+    if (!isTicking) {
+        window.requestAnimationFrame(() => {
+            const scrolled = window.scrollY;
+            
+            // 1. Back to Top
+            if (scrolled > 400) {
+                backToTopBtn?.classList.add('visible');
+            } else {
+                backToTopBtn?.classList.remove('visible');
+            }
+            
+            // 2. Scroll Progress Bar
+            const total = document.documentElement.scrollHeight - window.innerHeight;
+            if (progressBar && total > 0) {
+                progressBar.style.width = `${(scrolled / total) * 100}%`;
+            }
+            
+            // 3. Header Glass
+            header?.classList.toggle('scrolled', scrolled > 60);
+            
+            isTicking = false;
+        });
+        isTicking = true;
     }
 }, { passive: true });
 
@@ -110,25 +138,7 @@ if (heroStats) {
     counterObserver.observe(heroStats);
 }
 
-// ===========================
-// Scroll Progress Bar
-// ===========================
-const progressBar = document.getElementById('scroll-progress');
-window.addEventListener('scroll', () => {
-    const scrolled = window.scrollY;
-    const total = document.documentElement.scrollHeight - window.innerHeight;
-    if (progressBar && total > 0) {
-        progressBar.style.width = `${(scrolled / total) * 100}%`;
-    }
-}, { passive: true });
-
-// ===========================
-// Header Glass on Scroll
-// ===========================
-const header = document.querySelector('.main-header');
-window.addEventListener('scroll', () => {
-    header?.classList.toggle('scrolled', window.scrollY > 60);
-}, { passive: true });
+// Removed separate scroll handlers for performance
 
 // ===========================
 // Card Spotlight Effect
