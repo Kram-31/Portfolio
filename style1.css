@@ -720,19 +720,49 @@ h2::after {
     font-size: 0.75rem;
 }
 
-/* Footer & Mobile */
-.last-section-footer {
-    margin-top: auto;
-    padding-top: 4rem;
-    text-align: center;
-    color: var(--text-muted);
+/* Fixed Social Dock */
+.social-dock {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    z-index: 500;
 }
 
-.social-links {
+.social-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: rgba(15, 17, 21, 0.85);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(12px);
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 1.5rem;
-    margin-top: 1rem;
+    color: var(--text-muted);
+    transition: all 0.25s ease;
+}
+
+.social-btn:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255,255,255,0.2);
+    color: #fff;
+}
+
+.social-btn:first-child:hover {
+    background: rgba(10, 102, 194, 0.2);
+    border-color: rgba(10, 102, 194, 0.5);
+    box-shadow: 0 8px 20px rgba(10, 102, 194, 0.3);
+    color: #5eaeff;
+}
+
+.social-btn:last-child:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255,255,255,0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    color: #fff;
 }
 
 /* Education Section within About */
