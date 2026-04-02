@@ -131,7 +131,7 @@ window.addEventListener('scroll', () => {
 // ===========================
 // Card Spotlight Effect
 // ===========================
-document.querySelectorAll('.project-card, .cert-card').forEach(card => {
+document.querySelectorAll('.project-card, .cert-card, .skill-category').forEach(card => {
     card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
         card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);

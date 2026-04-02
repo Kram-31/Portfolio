@@ -1141,7 +1141,8 @@ body.modal-open {
    Card Spotlight Effect
    =========================== */
 .project-card::before,
-.cert-card::before {
+.cert-card::before,
+.skill-category::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -1153,10 +1154,19 @@ body.modal-open {
     border-radius: inherit;
     pointer-events: none;
     z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover::before,
+.cert-card:hover::before,
+.skill-category:hover::before {
+    opacity: 1;
 }
 
 .project-content,
-.cert-card > * {
+.cert-card > *,
+.skill-category > * {
     position: relative;
     z-index: 1;
 }
