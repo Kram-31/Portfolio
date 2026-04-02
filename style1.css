@@ -1110,3 +1110,92 @@ body.modal-open {
         font-size: 1.5rem;
     }
 }
+
+/* ===========================
+   Scroll Progress Bar
+   =========================== */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    background: linear-gradient(90deg, #4f46e5, #a5b4fc);
+    z-index: 9999;
+    transition: width 0.08s linear;
+    box-shadow: 0 0 8px rgba(79, 70, 229, 0.6);
+}
+
+/* ===========================
+   Header — Glass on Scroll
+   =========================== */
+.main-header.scrolled {
+    background: rgba(10, 12, 17, 0.97);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border-bottom-color: rgba(79, 70, 229, 0.25);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ===========================
+   Card Spotlight Effect
+   =========================== */
+.project-card::before,
+.cert-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        480px circle at var(--mouse-x, -300px) var(--mouse-y, -300px),
+        rgba(79, 70, 229, 0.14),
+        transparent 40%
+    );
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.project-content,
+.cert-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===========================
+   Visual Timeline (À propos)
+   =========================== */
+.education-block {
+    padding-left: 1.75rem;
+    border-left: 2px solid rgba(79, 70, 229, 0.3);
+}
+
+.education-item {
+    position: relative;
+}
+
+.education-item::before {
+    content: '';
+    position: absolute;
+    left: -2.35rem;
+    top: 0.4rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #4f46e5;
+    border: 2px solid #0a0c11;
+    box-shadow: 0 0 10px rgba(79, 70, 229, 0.7);
+}
+
+/* ===========================
+   Typewriter cursor blink
+   =========================== */
+@keyframes blink {
+    0%, 100% { border-color: #a5b4fc; }
+    50%       { border-color: transparent; }
+}
+
+.text-gradient.typing {
+    border-right: 2px solid #a5b4fc;
+    animation: blink 0.75s step-end infinite;
+    padding-right: 2px;
+}

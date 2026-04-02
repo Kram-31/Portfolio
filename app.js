@@ -110,3 +110,53 @@ if (heroStats) {
     counterObserver.observe(heroStats);
 }
 
+// ===========================
+// Scroll Progress Bar
+// ===========================
+const progressBar = document.getElementById('scroll-progress');
+window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    if (progressBar) progressBar.style.width = `${(scrolled / total) * 100}%`;
+}, { passive: true });
+
+// ===========================
+// Header Glass on Scroll
+// ===========================
+const header = document.querySelector('.main-header');
+window.addEventListener('scroll', () => {
+    header?.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// ===========================
+// Card Spotlight Effect
+// ===========================
+document.querySelectorAll('.project-card, .cert-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+    });
+});
+
+// ===========================
+// Typewriter Effect (Hero)
+// ===========================
+const typedEl = document.querySelector('.text-gradient');
+if (typedEl) {
+    const fullText = typedEl.textContent.trim();
+    typedEl.textContent = '';
+    typedEl.classList.add('typing');
+
+    let i = 0;
+    const type = () => {
+        if (i < fullText.length) {
+            typedEl.textContent += fullText[i++];
+            setTimeout(type, 65);
+        } else {
+            setTimeout(() => typedEl.classList.remove('typing'), 1200);
+        }
+    };
+    setTimeout(type, 700);
+}
+
