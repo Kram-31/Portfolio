@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kram-31.github.io/Portfolio/sitemap.xml
