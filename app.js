@@ -99,7 +99,7 @@ if (heroStats) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 document.querySelectorAll('[data-count]').forEach(el => {
-                    const target = parseInt(el.dataset.count);
+                    const target = parseInt(el.dataset.count) || 0;
                     const suffix = el.dataset.suffix || '';
                     setTimeout(() => animateCounter(el, target, suffix), 400);
                 });
@@ -117,7 +117,9 @@ const progressBar = document.getElementById('scroll-progress');
 window.addEventListener('scroll', () => {
     const scrolled = window.scrollY;
     const total = document.documentElement.scrollHeight - window.innerHeight;
-    if (progressBar) progressBar.style.width = `${(scrolled / total) * 100}%`;
+    if (progressBar && total > 0) {
+        progressBar.style.width = `${(scrolled / total) * 100}%`;
+    }
 }, { passive: true });
 
 // ===========================

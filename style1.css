@@ -467,9 +467,10 @@ h2::after {
 
 /* Timeline & Education */
 .education-block {
-    margin-top: 4rem;
+    margin-top: 3rem;
     padding-top: 2rem;
     border-top: 1px solid var(--card-border);
+    text-align: left;
 }
 .project-tag {
     font-size: 0.75rem;
@@ -751,14 +752,14 @@ h2::after {
     color: #fff;
 }
 
-.social-btn:first-child:hover {
+.social-btn[aria-label="LinkedIn"]:hover {
     background: rgba(10, 102, 194, 0.2);
     border-color: rgba(10, 102, 194, 0.5);
     box-shadow: 0 8px 20px rgba(10, 102, 194, 0.3);
     color: #5eaeff;
 }
 
-.social-btn:last-child:hover {
+.social-btn[aria-label="GitHub"]:hover {
     background: rgba(255, 255, 255, 0.08);
     border-color: rgba(255,255,255,0.3);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
@@ -790,11 +791,6 @@ h2::after {
 }
 
 /* Education Section within About */
-.education-block {
-    margin-top: 3rem;
-    text-align: left;
-}
-
 .education-block h3 {
     font-size: 1.2rem;
     color: #fff;
