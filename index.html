@@ -1,31 +1,32 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Mon Portfolio - Technicien </title>
-
+    <title>Kaced Kamal - Portfolio IT</title>
+    <meta name="description" content="Portfolio de Kaced Kamal, futur technicien Support IT & Réseaux. Découvrez mon parcours atypique et mes projets techniques.">
     <link rel="stylesheet" href="style1.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <header class="main-header">
-        
-        <div class="logo">Kaced Kamal</div>
+    <div class="background-fixed"></div>
+    <div class="background-grid"></div>
+    <canvas id="stars-canvas"></canvas>
 
+    <header class="main-header">
+        <div class="logo">Kaced Kamal</div>
         <nav class="main-nav">
             <ul>
                 <li><a href="#accueil">Accueil</a></li>
-                
                 <li><a href="#a-propos">À propos</a></li>
-                
+                <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#projets">Projets</a></li>
-                
+                <li><a href="#competences">Compétences</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -34,85 +35,212 @@
     <main>
 
         <section id="accueil" class="hero-section">
-            <h1>Bienvenue sur mon Portfolio</h1>
-            
-            <p class="tagline">Je transforme des idées en réalité numérique.</p>
-            
-            <a href="#projets" class="btn-primary">Voir mes travaux</a>
+            <div class="hero-bg-glow"></div>
+            <div class="section-container">
+                <div class="badge">Disponible Fin Mai 2024</div>
+                <h1>Technicien Support <br><span class="text-gradient">IT & Réseaux</span></h1>
+                <p class="tagline">
+                    Actuellement à la recherche d'un <strong>stage de 6 à 8 semaines</strong> (fin mai), 
+                    suivi d'une <strong>alternance</strong> pour ma deuxième année.
+                </p>
+                <div class="hero-actions">
+                    <a href="#projets" class="btn-primary">Découvrir mes projets</a>
+                    <a href="#contact" class="btn-secondary">Me contacter</a>
+                </div>
+            </div>
         </section>
 
         <section id="a-propos" class="about-section">
-            <h2>À propos de moi</h2>
-            
-            <div class="about-content">
-                <p>Ici, paragraphe.</p>
-                
-                <ul class="skills-list">
-                    <li>HTML5</li>
-                    <li>CSS3</li>
-                    <li>JavaScript</li>
-                    </ul>
+            <div class="section-container">
+                <h2>Mon Parcours</h2>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>
+                            Actuellement en préparation d'un <strong>BTS Cybersécurité, Informatique et Réseaux (CIEL IR)</strong> 
+                            à la Cité Scolaire de Mirepoix, je combine une expertise technique en pleine croissance 
+                            avec une grande maturité professionnelle acquise sur le terrain.
+                        </p>
+                        
+                        <div class="education-block">
+                            <h3>Formation & Expérience</h3>
+                            
+                            <div class="education-item">
+                                <span class="edu-date">2025 - 2027</span>
+                                <div class="edu-info">
+                                    <span class="edu-title">BTS CIEL IR (Option A Informatique & Réseaux)</span>
+                                    <span class="edu-school">Cité Scolaire de Mirepoix</span>
+                                    <p class="edu-desc">Spécialisation en administration réseaux et cybersécurité.</p>
+                                </div>
+                            </div>
+
+                            <div class="education-item">
+                                <span class="edu-date">2023 - 2024</span>
+                                <div class="edu-info">
+                                    <span class="edu-title">Aide-Soignant (Hôpital & EHPAD)</span>
+                                    <span class="edu-school">CH Muret / EHPAD La Triade</span>
+                                    <p class="edu-desc">Gestion des urgences, empathie et sens du service client en milieu critique.</p>
+                                </div>
+                            </div>
+
+                            <div class="education-item">
+                                <span class="edu-date">2023</span>
+                                <div class="edu-info">
+                                    <span class="edu-title">Baccalauréat Général (SES & Anglais LLCE)</span>
+                                    <span class="edu-school">Lycée Pierre d'Aragon</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications" class="cert-section">
+            <div class="section-container">
+                <h2>Certifications</h2>
+                <div class="cert-grid">
+                    <div class="cert-card">
+                        <div class="cert-icon">🍎</div>
+                        <div class="cert-info">
+                            <h5>Apple Foundation</h5>
+                            <p>Développement Swift/iOS</p>
+                        </div>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-icon">🏊</div>
+                        <div class="cert-info">
+                            <h5>Piscine 42</h5>
+                            <p>C & Shell Scripting</p>
+                        </div>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-icon">🇬🇧</div>
+                        <div class="cert-info">
+                            <h5>Anglais C1</h5>
+                            <p>Courant / Technique</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="projets" class="projects-section">
-            <h2>Mes Réalisations</h2>
-            
-            <div class="projects-grid">
-                
-                <article class="project-card">
-                    <img src="projet1.jpg" alt="Aperçu du projet 1" class="project-img">
+            <div class="section-container">
+                <h2>Mes Réalisations</h2>
+                <div class="projects-grid">
                     
-                    <h3>Nom du Projet 1</h3>
-                    
-                    <p>Brève explication de ce que fait ce projet et des technos utilisées.</p>
-                    
-                    <a href="#" class="project-link">Voir le projet</a>
-                </article>
+                    <article class="project-card">
+                        <div class="project-content">
+                            <div class="project-tag">Réseau & Infra</div>
+                            <h3>Infrastructure Réseau Îlot</h3>
+                            <p>Mise en place d'une infrastructure complète utilisant VirtualBox et GLPI pour la gestion de parc et le ticketing. Configuration de serveurs et clients en environnement virtualisé.</p>
+                            <div class="project-tech">
+                                <span>VirtualBox</span>
+                                <span>GLPI</span>
+                                <span>Debian</span>
+                            </div>
+                        </div>
+                    </article>
 
-                <article class="project-card">
-                    <img src="projet2.jpg" alt="Aperçu du projet 2" class="project-img">
-                    <h3>Nom du Projet 2</h3>
-                    <p>Brève explication de ce que fait ce projet.</p>
-                    <a href="#" class="project-link">Voir le projet</a>
-                </article>
+                    <article class="project-card">
+                        <div class="project-content">
+                            <div class="project-tag">Développement iOS</div>
+                            <h3>Application GameSync</h3>
+                            <p>Développement natif en Swift. Création d'un algorithme de matchmaking basé sur les préférences utilisateurs et conception d'une interface interactive avec roulette aléatoire.</p>
+                            <div class="project-tech">
+                                <span>Swift</span>
+                                <span>iOS</span>
+                                <span>UIKit</span>
+                            </div>
+                        </div>
+                    </article>
 
+                    <article class="project-card">
+                        <div class="project-content">
+                            <div class="project-tag">Fondamentaux</div>
+                            <h3>Piscine 42 - UNIX</h3>
+                            <p>Immersion intensive dans le langage C et l'environnement UNIX. Développement d'algorithmes, gestion manuelle de la mémoire (pointeurs) et scripting Bash pour l'automatisation.</p>
+                            <div class="project-tech">
+                                <span>C</span>
+                                <span>Bash</span>
+                                <span>Shell</span>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="competences" class="skills-section">
+            <div class="section-container">
+                <h2>Compétences</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Systèmes & Réseaux</h4>
+                        <ul>
+                            <li>Linux & Windows Server</li>
+                            <li>Virtualisation (Proxmox, VirtualBox)</li>
+                            <li>LAN/WAN, VLAN, VPN</li>
+                            <li>TCP/IP, DHCP, DNS, Firewall</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Développement & Scripting</h4>
+                        <ul>
+                            <li>Bash & Shell</li>
+                            <li>Langage C & Python</li>
+                            <li>Swift (iOS)</li>
+                            <li>Git (Versionning avancé)</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Méthodes & Outils</h4>
+                        <ul>
+                            <li>Résolution d'incidents (L1/L2)</li>
+                            <li>Gestion de parc (GLPI)</li>
+                            <li>Méthodologie Agile</li>
+                            <li>Anglais : Courant (C1)</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="contact" class="contact-section">
-            <h2>Me contacter</h2>
-            
-            <form action="https://formspree.io/f/xqezyryw" method="POST" class="contact-form">
-                <div class="form-group">
-                    <label for="name">Nom :</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email :</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Message :</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-                
-                <button type="submit" class="btn-submit">Envoyer</button>
-            </form>
+            <div class="section-container">
+                <h2>Me contacter</h2>
+                <form action="https://formspree.io/f/xqezyryw" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Votre Nom</label>
+                        <input type="text" id="name" name="name" placeholder="Ex: Jean Dupont" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Adresse Email</label>
+                        <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Votre Message</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Parlons de votre futur collaborateur..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Envoyer mon message</button>
+                </form>
+            </div>
         </section>
 
     </main>
 
     <footer class="main-footer">
-        <p>&copy; 2024 Kaced Kamal. Tous droits réservés.</p>
-        
-        <div class="social-links">
-            <a href="www.linkedin.com/in/kaced-kamal-undefined-680896347">LinkedIn</a>
-            <a href="https://github.com/Kram-31">GitHub</a>
+        <div class="section-container">
+            <p>&copy; 2024 Kaced Kamal. <br>Technicien Support IT & Réseaux en devenir.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/kaced-kamal-undefined-680896347" target="_blank">LinkedIn</a>
+                <a href="https://github.com/Kram-31" target="_blank">GitHub</a>
+            </div>
         </div>
     </footer>
 
+    <script src="stars.js"></script>
 </body>
+
 </html>
