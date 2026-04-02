@@ -30,6 +30,9 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+        <button id="burger-btn" class="burger-menu" aria-label="Ouvrir le menu" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
     </header>
 
     <main>
@@ -45,7 +48,17 @@
                 </p>
                 <div class="hero-actions">
                     <a href="#projets" class="btn-primary">Découvrir mes projets</a>
-                    <a href="#contact" class="btn-secondary">Me contacter</a>
+                    <a href="cv kamal kaced.pdf" download class="btn-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        Télécharger mon CV
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item"><span class="stat-number">3</span><span class="stat-label">Projets</span></div>
+                    <span class="stat-sep">·</span>
+                    <div class="stat-item"><span class="stat-number">2 ans</span><span class="stat-label">Expérience terrain</span></div>
+                    <span class="stat-sep">·</span>
+                    <div class="stat-item"><span class="stat-number">C1</span><span class="stat-label">Niveau anglais</span></div>
                 </div>
             </div>
         </section>
@@ -53,7 +66,10 @@
         <section id="a-propos" class="about-section">
             <div class="section-container">
                 <h2>Mon Parcours</h2>
-                <div class="about-grid">
+                <div class="about-grid animate-on-scroll">
+                    <div class="about-photo">
+                        <div class="avatar-initials">KK</div>
+                    </div>
                     <div class="about-text">
                         <p>
                             Actuellement en préparation d'un <strong>BTS Cybersécurité, Informatique et Réseaux (CIEL IR)</strong> 
@@ -178,9 +194,12 @@
         <section id="competences" class="skills-section">
             <div class="section-container">
                 <h2>Compétences</h2>
-                <div class="skills-grid">
+                <div class="skills-grid animate-on-scroll">
                     <div class="skill-category">
-                        <h4>Systèmes & Réseaux</h4>
+                        <h4>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"></rect><rect x="2" y="14" width="20" height="8" rx="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                            Systèmes & Réseaux
+                        </h4>
                         <ul>
                             <li>Linux & Windows Server</li>
                             <li>Virtualisation (Proxmox, VirtualBox)</li>
@@ -189,7 +208,10 @@
                         </ul>
                     </div>
                     <div class="skill-category">
-                        <h4>Développement & Scripting</h4>
+                        <h4>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                            Développement & Scripting
+                        </h4>
                         <ul>
                             <li>Bash & Shell</li>
                             <li>Langage C & Python</li>
@@ -198,7 +220,10 @@
                         </ul>
                     </div>
                     <div class="skill-category">
-                        <h4>Méthodes & Outils</h4>
+                        <h4>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                            Méthodes & Outils
+                        </h4>
                         <ul>
                             <li>Résolution d'incidents (L1/L2)</li>
                             <li>Gestion de parc (GLPI)</li>
@@ -261,6 +286,7 @@
                 <div class="modal-tag" id="modal-tag"></div>
                 <h2 id="modal-title" class="modal-title"></h2>
                 <p class="modal-subtitle" id="modal-subtitle"></p>
+                <div class="modal-date-badge" id="modal-date" style="display:none"></div>
             </div>
             <div class="modal-body">
                 <div class="modal-section">
@@ -285,6 +311,7 @@
 
     <script src="stars.js"></script>
     <script src="modal.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
